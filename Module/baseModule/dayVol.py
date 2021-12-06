@@ -17,7 +17,7 @@ class EWMA():
         return result
     
     def forecast(self, time_series, span=20):
-        forecast_value = self.fit(time_series=time_series)[-1]
+        forecast_value = self.fit(time_series=time_series).values[-1]
         return forecast_value
     
 class GARCH():
