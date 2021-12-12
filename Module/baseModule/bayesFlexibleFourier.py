@@ -165,7 +165,7 @@ class flexible_fourier_regression():
         
         sigma_t = ravel(sigma_t)
         res = minimize(lsq_fun_vec, sigma_t, tol=tol)
-        print("Model fit success: {}".format(res.success))
+        #print("Model fit success: {}".format(res.success))
         result_sigma_t = res.x
         
         return result_sigma_t
