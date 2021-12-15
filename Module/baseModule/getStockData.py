@@ -58,7 +58,8 @@ def get_stock_data(stock_RIC, aggre_min=10, start_time=None, end_time=None):
     
     resample_data.reset_index(inplace=True, drop=False)
     
-    resample_data["Vol"] = abs(np.log(resample_data['Close']/resample_data['Open']))
+    resample_data["Vol"] = np.sqrt(0.5*np.square(np.log(resample_data['High']/resample_data['Low'])) - \
+                                   (2*np.log(2)-1)*np.square(np.log(resample_data['Close']/resample_data['Open'])))
     
     ## Shifting TimeIndex so hh:mm:ss represents the 10 min intervals prior of that.
     ## For example, TimeIndex 09:40:00 represents the time range 09:30:00 to 09:39:00
